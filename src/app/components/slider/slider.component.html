@@ -1,0 +1,6 @@
+<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+  <div ngxSlickItem *ngFor="let movie of movies" class="slide">
+    <h3>{{ movie.title }}</h3>
+  </div>
+</ngx-slick-carousel>
+

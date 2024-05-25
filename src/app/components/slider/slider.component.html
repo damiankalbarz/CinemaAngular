@@ -1,6 +1,9 @@
+<!-- slider.component.html -->
 <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-  <div ngxSlickItem *ngFor="let movie of movies" class="slide">
-    <h3>{{ movie.title }}</h3>
+  <div ngxSlickItem *ngFor="let image of images" class="slide">
+    <h3>{{ image.title }}</h3>
+    <p>Author: {{ image.author }}</p>
+    <p>Category: {{ image.category }}</p>
+    <img [src]="image.image" alt="Obrazek">
   </div>
 </ngx-slick-carousel>
-

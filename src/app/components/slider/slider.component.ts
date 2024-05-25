@@ -1,24 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
   selector: 'app-slider',
   standalone: true,
-  imports: [CommonModule, SlickCarouselModule],
+  imports: [CommonModule, HttpClientModule, SlickCarouselModule],
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.less']
+  styleUrls: ['./slider.component.css'],
+  //providers: [HttpClient]
 })
 export class SliderComponent implements OnInit {
-  movies: any[] = [];
-  slideConfig = { "slidesToShow": 1, "slidesToScroll": 1 };
+  images: any[] = [];
+  slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
 
   constructor(private movieService: MovieService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.movieService.getMovies().subscribe(data => {
-      this.movies = data.results;
+      this.images = data;
+      console.log('Otrzymane dane:', data);
     });
   }
 }

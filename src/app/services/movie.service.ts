@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,11 +8,20 @@ import { Observable } from 'rxjs';
 export class MovieService {
 
   private apiUrl = 'http://localhost:8084/film';
+  private apiUrl2 = 'http://localhost:8084/film/auth';
 
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
-}
 
+  addMovie(moviesData: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+    console.log('Sending movie data:', moviesData);
+    return this.http.post<any>(this.apiUrl2, moviesData, { headers });
+  }
+}

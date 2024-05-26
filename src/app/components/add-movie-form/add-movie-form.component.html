@@ -1,21 +1,18 @@
-<!-- add-movie-form.component.html -->
-
 <div class="container mt-4">
   <h2>Dodaj nowy film</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()" #movieForm="ngForm">
     <div class="mb-3">
       <label for="title" class="form-label">Tytuł</label>
-      <input type="text" class="form-control" id="title" name="title" required>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="movie.title" required>
     </div>
     <div class="mb-3">
       <label for="director" class="form-label">Reżyser</label>
-      <input type="text" class="form-control" id="director" name="director" required>
+      <input type="text" class="form-control" id="director" name="director" [(ngModel)]="movie.director" required>
     </div>
     <div class="mb-3">
-      <label for="director" class="form-label">Kategoria</label>
-      <input type="text" class="form-control" id="category" name="director" required>
+      <label for="category" class="form-label">Kategoria</label>
+      <input type="text" class="form-control" id="category" name="category" [(ngModel)]="movie.category" required>
     </div>
-
     <div class="mb-3">
       <label for="image" class="form-label">Zdjęcie</label>
       <input type="file" class="form-control" id="image" name="image" accept="image/*" (change)="onFileSelected($event)">

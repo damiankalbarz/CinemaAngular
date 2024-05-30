@@ -24,4 +24,5 @@ export class SliderComponent implements OnInit {
       console.log('Otrzymane dane:', data);
     });
   }
+
 }

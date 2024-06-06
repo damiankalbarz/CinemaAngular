@@ -1,19 +1,38 @@
-<!-- slider.component.html
-<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-  <div ngxSlickItem *ngFor="let image of images" class="slide">
-    <h3>{{ image.title }}</h3>
-    <p>Author: {{ image.author }}</p>
-    <p>Category: {{ image.category }}</p>
-    <img [src]="image.image" alt="Obrazek">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-</ngx-slick-carousel>
--->
-
-  <nav>
-    <ul>
-      <li><a routerLink="/login" routerLinkActive="active">First Component</a></li>
-      <li><a routerLink="/register" routerLinkActive="active">Second Component</a></li>
-    </ul>
-  </nav>
-
-
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/to.jpeg" class="d-block w-100" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/sz.jpeg" class="d-block w-100" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/to.jpeg" class="d-block w-100" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

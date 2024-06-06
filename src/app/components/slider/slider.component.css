@@ -1,4 +1,5 @@
-/* slider.component.css */
-.carousel {
+.carousel-item img {
   width: 100%;
+  height: auto;
+  max-height: 400px;
 }

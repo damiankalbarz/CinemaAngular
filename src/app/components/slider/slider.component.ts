@@ -13,16 +13,10 @@ import { MovieService } from '../../services/movie.service';
   //providers: [HttpClient]
 })
 export class SliderComponent implements OnInit {
-  images: any[] = [];
-  slideConfig = { slidesToShow: 4, slidesToScroll: 4 };
 
-  constructor(private movieService: MovieService) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.movieService.getMovies().subscribe(data => {
-      this.images = data;
-      console.log('Otrzymane dane:', data);
-    });
+  ngOnInit(): void {
   }
 
 }

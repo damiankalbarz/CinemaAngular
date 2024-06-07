@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-movie-form',

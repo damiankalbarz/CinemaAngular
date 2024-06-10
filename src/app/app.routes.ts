@@ -5,6 +5,8 @@ import { RegisterComponent} from './components/register/register.component';
 import { SliderComponent } from './components/slider/slider.component'
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AddMovieFormComponent} from './components/add-movie-form/add-movie-form.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 export const routes: Routes = [
 {
@@ -20,8 +22,9 @@ export const routes: Routes = [
    { path: 'admin-page',
     component: AdminPageComponent,
     children: [
-      { path: '', redirectTo: 'addMovie', pathMatch: 'full'},
+      { path: '', redirectTo: 'movieList', pathMatch: 'full'},
       { path: 'addMovie', component: AddMovieFormComponent},
+      { path: 'movieList', component: MovieListComponent }
     ],
    },
 ];

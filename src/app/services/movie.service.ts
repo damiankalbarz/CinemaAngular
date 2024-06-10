@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, withFetch } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,4 +24,15 @@ export class MovieService {
     console.log('Sending movie data:', moviesData);
     return this.http.post<any>(this.apiUrl2, moviesData, { headers });
   }
+
+  getMovieList(): Observable<Movie[]>{
+    return this.http.get<Movie[]>("http://localhost:8084/film");
+  }
+}
+
+export interface Movie {
+  id: number;
+  title: string;
+  author: string;
+  category: string;
 }

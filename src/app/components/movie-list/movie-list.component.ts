@@ -20,4 +20,12 @@ export class MovieListComponent {
       });
   }
 
+   deleteMovie(movie: Movie): void {
+      if (confirm(`Are you sure you want to delete the movie "${movie.title}"?`)) {
+        this.movieService.deleteMovie(movie.id).subscribe(() => {
+          this.movies = this.movies.filter(m => m.id !== movie.id);
+        });
+      }
+    }
+
 }

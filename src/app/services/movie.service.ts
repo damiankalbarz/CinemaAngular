@@ -28,6 +28,10 @@ export class MovieService {
   getMovieList(): Observable<Movie[]>{
     return this.http.get<Movie[]>("http://localhost:8084/film");
   }
+
+   deleteMovie(id: number): Observable<void> {
+       return this.http.delete<void>(`${this.apiUrl2}/${id}`);
+     }
 }
 
 export interface Movie {

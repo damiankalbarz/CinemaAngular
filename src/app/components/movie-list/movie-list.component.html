@@ -1,20 +1,22 @@
 <h2>Movie List</h2>
 
+<div class="filters mb-3">
+  <input type="text" class="form-control mb-2" placeholder="Filter by title" [(ngModel)]="titleFilter" (ngModelChange)="filterMovies()">
+  <input type="text" class="form-control mb-2" placeholder="Filter by category" [(ngModel)]="categoryFilter" (ngModelChange)="filterMovies()">
+</div>
+
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let movie of movies">
+  <li class="list-group-item" *ngFor="let movie of filteredMovies">
     <div class="d-flex justify-content-between align-items-center">
       <div>
-        <div>{{ movie.title }}</div>
-        <div>{{ movie.author }}</div>
-        <div>{{ movie.category }}</div>
+        <span class="mr-3"><strong>Title:</strong> {{ movie.title }}</span>
+        <span class="mr-3"><strong>Author:</strong> {{ movie.author }}</span>
+        <span class="mr-3"><strong>Category:</strong> {{ movie.category }}</span>
       </div>
       <div>
         <button class="btn btn-primary mr-2" >Edit</button>
-        <button class="btn btn-danger" (click)="deleteMovie(movie)" >Delete</button>
+        <button class="btn btn-danger" (click)="deleteMovie(movie)">Delete</button>
       </div>
     </div>
   </li>
 </ul>
-
-
-

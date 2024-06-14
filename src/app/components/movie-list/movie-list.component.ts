@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService, Movie } from '../../services/movie.service';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -8,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.less'] // Użyj 'styleUrls' zamiast 'styleUrl'
+  styleUrls: ['./movie-list.component.less']
 })
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
@@ -16,13 +17,9 @@ export class MovieListComponent implements OnInit {
   titleFilter: string = '';
   categoryFilter: string = '';
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
-    this.loadMovies();
-  }
-
-  loadMovies(): void {
     this.movieService.getMovies().subscribe((data: Movie[]) => {
       this.movies = data;
       this.filteredMovies = data;
@@ -33,15 +30,19 @@ export class MovieListComponent implements OnInit {
     if (confirm(`Are you sure you want to delete the movie "${movie.title}"?`)) {
       this.movieService.deleteMovie(movie.id).subscribe(() => {
         this.movies = this.movies.filter(m => m.id !== movie.id);
-        this.filterMovies();
+        this.filteredMovies = this.filteredMovies.filter(m => m.id !== movie.id);
       });
     }
   }
 
   filterMovies(): void {
-    this.filteredMovies = this.movies.filter(movie =>
-      (this.titleFilter === '' || movie.title.toLowerCase().includes(this.titleFilter.toLowerCase())) &&
-      (this.categoryFilter === '' || movie.category.toLowerCase().includes(this.categoryFilter.toLowerCase()))
-    );
+    this.filteredMovies = this.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(this.titleFilter.toLowerCase()) &&
+             movie.category.toLowerCase().includes(this.categoryFilter.toLowerCase());
+    });
+  }
+
+  navigateToAddSeans(movie: Movie): void {
+    this.router.navigate(['/admin-page/addSeans', movie.id]);
   }
 }

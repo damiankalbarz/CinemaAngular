@@ -6,6 +6,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { AddMovieFormComponent } from './components/add-movie-form/add-movie-form.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { AddSeansComponent } from './components/add-seans/add-seans.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'movieList', pathMatch: 'full' },
       { path: 'addMovie', component: AddMovieFormComponent },
       { path: 'movieList', component: MovieListComponent },
+      { path: 'addSeans/:id', component: AddSeansComponent },
     ],
   },
 ];

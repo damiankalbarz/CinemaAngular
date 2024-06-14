@@ -1,0 +1,32 @@
+<!-- src/app/components/film-show-list/film-show-list.component.html -->
+
+<div class="container mt-4">
+  <h2>Lista Seansów</h2>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Data i Czas</th>
+        <th scope="col">Kino</th>
+        <th scope="col">Film</th>
+        <th scope="col">Sala</th>
+        <th scope="col">Dostępne Miejsca</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let filmShow of filmShows">
+        <td>{{ filmShow.id }}</td>
+        <td>{{ filmShow.dateTime | date: 'yyyy-MM-dd HH:mm' }}</td>
+        <td>{{ filmShow.cinemaId }}</td>
+        <td>{{ filmShow.filmId }}</td>
+        <td>{{ filmShow.roomId }}</td>
+        <td>{{ filmShow.availableSeats }}</td>
+      </tr>
+      <tr *ngIf="filmShows.length === 0">
+        <td colspan="6" class="text-center">Brak dostępnych seansów</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

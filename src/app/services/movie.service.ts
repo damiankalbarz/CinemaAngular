@@ -19,7 +19,6 @@ export class MovieService {
   addMovie(moviesData: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
     });
     console.log('Sending movie data:', moviesData);
     return this.http.post<any>(this.apiUrl2, moviesData, { headers });

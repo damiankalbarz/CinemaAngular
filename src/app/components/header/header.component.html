@@ -13,6 +13,7 @@
         <div class="desktop_menu" [class.mobile_menu]="menuValue">
           <ul>
             <li (click)="closeMenu()">Home</li>
+            <li (click)="closeMenu()" routerLink="/filmShowListUser">Seanse</li>
             <li (click)="closeMenu()" routerLink="/admin-page">Movie Screening</li>
             <li (click)="closeMenu()" routerLink="/login">Login</li>
             <li (click)="closeMenu()" routerLink="/register"><a >Register</a></li>

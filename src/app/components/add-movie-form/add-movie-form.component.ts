@@ -15,17 +15,17 @@ import { Router } from '@angular/router';
 export class AddMovieFormComponent {
   movie: any = {
     title: '',
-    director: '',
+    author: '',
     category: ''
   };
-  selectedFile: File | null = null;
+  //selectedFile: File | null = null;
 
   constructor(private movieService: MovieService, private http: HttpClient) { }
-
+/*
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
     console.log('Wybrany plik:', this.selectedFile);
-  }
+  }*/
 
   onSubmit() {
     // Upewnij się, że wszystkie pola są wypełnione
@@ -34,21 +34,20 @@ export class AddMovieFormComponent {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('title', this.movie.title);
-    formData.append('director', this.movie.director);
-    formData.append('category', this.movie.category);
-    if (this.selectedFile) {
-      formData.append('image', this.selectedFile);
-    }
+    const movieData = {
+      title : this.movie.title,
+      author : this.movie.director,
+      category : this.movie.category
+    };
 
-    this.movieService.addMovie(formData).subscribe(
+
+    this.movieService.addMovie(movieData).subscribe(
       response => {
         console.log('Film został dodany:', response);
       },
       error => {
         console.error('Wystąpił błąd podczas dodawania filmu:', error);
-        console.log('Wysłane dane:', formData);
+        console.log('Wysłane dane:', movieData);
       }
     );
   }

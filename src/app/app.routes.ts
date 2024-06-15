@@ -8,6 +8,9 @@ import { AddMovieFormComponent } from './components/add-movie-form/add-movie-for
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { AddSeansComponent } from './components/add-seans/add-seans.component';
 import { FilmShowListComponent } from './components/film-show-list/film-show-list.component';
+import { FilmShowListUserComponent } from './components/film-show-list-user/film-show-list-user.component';
+
+
 
 export const routes: Routes = [
   {
@@ -18,6 +21,7 @@ export const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'slider', component: SliderComponent },
+      { path: 'filmShowListUser', component: FilmShowListUserComponent},
     ],
   },
   {

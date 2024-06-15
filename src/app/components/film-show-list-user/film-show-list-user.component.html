@@ -1,0 +1,26 @@
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="filmShows.length">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let show of filmShows" class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ show.film?.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ show.cinema?.name }}</h6>
+            <p class="card-text"><strong>Location:</strong> {{ show.cinema?.location }}</p>
+            <p class="card-text"><strong>Room:</strong> {{ show.room?.name }}</p>
+            <p class="card-text"><strong>Date and Time:</strong> {{ show.dateTime | date: 'short' }}</p>
+            <p class="card-text"><strong>Available Seats:</strong> {{ show.availableSeats }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!filmShows.length && !errorMessage" class="alert alert-info" role="alert">
+  No film shows available.
+</div>

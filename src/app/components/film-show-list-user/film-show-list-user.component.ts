@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilmShowResponse } from '../../model/film-show-response.model';
 import { FilmShowService, FilmShow } from '../../services/filmShow.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class FilmShowListUserComponent implements OnInit {
   filmShows: FilmShowResponse[] = [];
   errorMessage: string = '';
 
-  constructor(private filmShowService: FilmShowService) { }
+  constructor(private filmShowService: FilmShowService,private router: Router) { }
 
   ngOnInit(): void {
     this.filmShowService.getAllFilmShowsWithDetails().subscribe({
@@ -24,4 +25,10 @@ export class FilmShowListUserComponent implements OnInit {
       error: (error) => this.errorMessage = 'Could not load film shows.'
     });
   }
+
+  reserveSeat(show: any): void {
+      this.router.navigate(['/login']);
+      console.log('Reserving seat for show:', show);
+
+    }
 }

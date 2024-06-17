@@ -4,20 +4,28 @@
 
 <div *ngIf="filmShows.length">
   <div class="container">
-    <div class="row">
-      <div *ngFor="let show of filmShows" class="col-md-4">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title">{{ show.film?.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ show.cinema?.name }}</h6>
-            <p class="card-text"><strong>Location:</strong> {{ show.cinema?.location }}</p>
-            <p class="card-text"><strong>Room:</strong> {{ show.room?.name }}</p>
-            <p class="card-text"><strong>Date and Time:</strong> {{ show.dateTime | date: 'short' }}</p>
-            <p class="card-text"><strong>Available Seats:</strong> {{ show.availableSeats }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Tytuł Filmu</th>
+        <th scope="col">Data i Czas</th>
+        <th scope="col">Lokalizacja</th>
+        <th scope="col">Sala</th>
+        <th scope="col">Dostępne Miejsca</th>
+        <th scope="col">Rezeracje</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let show of filmShows">
+        <td>{{ show.film?.title }}</td>
+        <td>{{ show.dateTime | date: 'short' }}</td>
+        <td>{{ show.cinema?.location }}</td>
+        <td>{{ show.room?.name }}</td>
+        <td>{{ show.availableSeats }}</td>
+        <td><button class="btn btn-primary" (click)="reserveSeat(show)">Zarezerwuj miejsce</button></td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 

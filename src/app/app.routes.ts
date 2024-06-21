@@ -9,6 +9,8 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { AddSeansComponent } from './components/add-seans/add-seans.component';
 import { FilmShowListComponent } from './components/film-show-list/film-show-list.component';
 import { FilmShowListUserComponent } from './components/film-show-list-user/film-show-list-user.component';
+import { ClientListComponent } from './components/client-list/client-list.component';
+
 
 
 
@@ -33,6 +35,7 @@ export const routes: Routes = [
       { path: 'movieList', component: MovieListComponent },
       { path: 'addSeans/:id', component: AddSeansComponent },
       { path: 'filmShowList', component: FilmShowListComponent },
+      { path: 'clientList', component: ClientListComponent },
     ],
   },
 ];

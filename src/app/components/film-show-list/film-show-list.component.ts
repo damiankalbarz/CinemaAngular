@@ -26,4 +26,8 @@ export class FilmShowListComponent implements OnInit {
       }
     );
   }
+   viewReservation(filmShowId: number): void {
+      // Przekierowanie do strony z rezerwacjami dla wybranego seansu
+      //this.router.navigate(['/reservation', filmShowId]);
+    }
 }

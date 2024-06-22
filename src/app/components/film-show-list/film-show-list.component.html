@@ -12,6 +12,7 @@
         <th scope="col">Film</th>
         <th scope="col">Sala</th>
         <th scope="col">Dostępne Miejsca</th>
+        <th scope="col">Akcje</th>
       </tr>
       </thead>
       <tbody>
@@ -22,6 +23,9 @@
         <td>{{ filmShow.filmId }}</td>
         <td>{{ filmShow.roomId }}</td>
         <td>{{ filmShow.availableSeats }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="viewReservation(filmShow.id)">Pokaż rezerwacje</button>
+        </td>
       </tr>
       <tr *ngIf="filmShows.length === 0">
         <td colspan="6" class="text-center">Brak dostępnych seansów</td>

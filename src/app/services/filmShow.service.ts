@@ -26,6 +26,7 @@ export class FilmShowService {
   getAllFilmShowsWithDetails(): Observable<FilmShowResponse[]> {
       return this.http.get<FilmShowResponse[]>(`${this.apiUrl}/detail`);
     }
+
 }
 
 export interface FilmShow {

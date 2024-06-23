@@ -1,13 +1,14 @@
-// src/app/components/film-show-list/film-show-list.component.ts
 
 import { Component, OnInit } from '@angular/core';
 import { FilmShowService, FilmShow } from '../../services/filmShow.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule} from '@angular/router';
+
 
 @Component({
   selector: 'app-film-show-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './film-show-list.component.html',
   styleUrls: ['./film-show-list.component.less']
 })
@@ -26,8 +27,5 @@ export class FilmShowListComponent implements OnInit {
       }
     );
   }
-   viewReservation(filmShowId: number): void {
-      // Przekierowanie do strony z rezerwacjami dla wybranego seansu
-      //this.router.navigate(['/reservation', filmShowId]);
-    }
+
 }

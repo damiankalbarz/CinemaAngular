@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -10,6 +10,7 @@ import { AddSeansComponent } from './components/add-seans/add-seans.component';
 import { FilmShowListComponent } from './components/film-show-list/film-show-list.component';
 import { FilmShowListUserComponent } from './components/film-show-list-user/film-show-list-user.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
+import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 
 
 
@@ -36,6 +37,7 @@ export const routes: Routes = [
       { path: 'addSeans/:id', component: AddSeansComponent },
       { path: 'filmShowList', component: FilmShowListComponent },
       { path: 'clientList', component: ClientListComponent },
+      { path: 'reservation/:filmShowId', component: ReservationListComponent },
     ],
   },
 ];

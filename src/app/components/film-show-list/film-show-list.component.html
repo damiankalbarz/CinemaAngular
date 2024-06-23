@@ -24,7 +24,7 @@
         <td>{{ filmShow.roomId }}</td>
         <td>{{ filmShow.availableSeats }}</td>
         <td>
-          <button class="btn btn-primary" (click)="viewReservation(filmShow.id)">Pokaż rezerwacje</button>
+          <a [routerLink]="['/admin-page/reservation', filmShow.id]" class="btn btn-primary">Pokaż rezerwacje</a>
         </td>
       </tr>
       <tr *ngIf="filmShows.length === 0">

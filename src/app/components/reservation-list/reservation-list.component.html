@@ -1,1 +1,25 @@
-<p>reservation-list works!</p>
+<div class="container mt-4">
+  <h2>Rezerwacje dla seansu {{ filmShowId }}</h2>
+  <div *ngIf="reservations.length > 0; else noReservations">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Liczba Miejsc</th>
+        <th scope="col">Id Klienta</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.id }}</td>
+        <td>{{ reservation.numberOfSeats }}</td>
+        <td>{{ reservation.clientId }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noReservations>
+    <p>Brak rezerwacji dla tego seansu.</p>
+  </ng-template>
+</div>
+

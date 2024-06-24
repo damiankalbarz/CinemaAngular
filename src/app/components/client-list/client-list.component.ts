@@ -21,6 +21,7 @@ export class ClientListComponent implements OnInit {
     this.clientService.getClients().subscribe(
       (data: Client[]) => {
         this.clients = data;
+        console.log(data);
       },
       (error) => {
         console.error('Error fetching client data:', error);

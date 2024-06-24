@@ -3,17 +3,21 @@
   <div *ngIf="reservations.length > 0; else noReservations">
     <table class="table table-striped">
       <thead>
-      <tr>
         <th scope="col">Id</th>
+        <th scope="col">Id Seansu</th>
+        <th scope="col">Data i Czas</th>
         <th scope="col">Liczba Miejsc</th>
-        <th scope="col">Id Klienta</th>
-      </tr>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
       </thead>
       <tbody>
       <tr *ngFor="let reservation of reservations">
         <td>{{ reservation.id }}</td>
+        <td>{{ reservation.filmShow.id }}</td>
+        <td>{{ reservation.filmShow.dateTime | date: 'yyyy-MM-dd HH:mm' }}</td>
         <td>{{ reservation.numberOfSeats }}</td>
-        <td>{{ reservation.clientId }}</td>
+        <td>{{ reservation.client?.name || 'Brak danych' }}</td>
+        <td>{{ reservation.client?.surname || 'Brak danych' }}</td>
       </tr>
       </tbody>
     </table>

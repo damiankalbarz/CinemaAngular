@@ -26,12 +26,11 @@ export class LoginComponent {
     this.http.post('http://localhost:9898/auth/token', this.loginObj, { headers: headers, responseType: 'text' }).subscribe({
       next: (res: any) => {
         console.log('Odpowiedź serwera:', res);
-        // Ustaw token JWT bezpośrednio z odpowiedzi tekstowej
         const token = res;
         if (token) {
           alert('Logowanie powiodło się');
           localStorage.setItem('angular17token', token);
-          this.router.navigateByUrl('/slider');
+          this.router.navigateByUrl('/admin-page/movieList');
         } else {
           alert('Logowanie nie powiodło się: nie otrzymano tokenu');
         }

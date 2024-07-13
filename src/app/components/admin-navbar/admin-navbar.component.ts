@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule} from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,5 +11,14 @@ import { RouterModule} from '@angular/router';
   styleUrl: './admin-navbar.component.less'
 })
 export class AdminNavbarComponent {
+
+   constructor( private router: Router) { }
+
+     onLogout() {
+       localStorage.removeItem('angular17token');
+       this.router.navigateByUrl('/login');
+
+    }
+
 
 }
